@@ -1,0 +1,29 @@
+\subsection{Retrieving travel products}
+
+We implemented the Google Maps API as the data source for our application
+because of its real-time accuracy and massive dataset compared with the other
+approaches and other APIs that we discussed in the literature review
+%~\cite{googleSite, iltifat2014generation}. In addition, the nearby search
+endpoint allows the app to search
+for places of a given category within a specified area. In order to retrieve
+the places for the application, eight requests are made, each requesting places
+of different categories. To solve the issues with time windows, we split the
+endpoints into two categories. Five of the requests represent places shown as
+part of the itinerary during the day, and the rest represent places shown
+during the night. 
+
+%%TODO: Add figure
+%Table X shows the eight categories that were requested. These
+%categories are based on the ones used by Wörndl et al.~\cite{Worndl2017} for their
+%application.
+
+
+%In return, the API returns a list of places of the specified area and category
+%and attributes about each place. The attributes used by our application include
+%the place's name, rating, the number of reviews and the coordinates. All of
+%these attributes help the application further optimise the algorithm to find
+%the perfect itinerary. 
+
+%%TODO: Add figure
+%Figure X shows an example of a response from the API.\
+
