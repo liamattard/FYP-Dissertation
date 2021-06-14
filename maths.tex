@@ -1,0 +1,64 @@
+\documentclass{article} \usepackage[utf8]{inputenc}
+
+\title{Equations} \author{liam attard } \date{June 2021} \usepackage{amsmath}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{Mathematical Model}
+
+
+A tourist trip is made up of some pre-defined user constants alongside the
+travel interest vector. The predefined constants are: \\
+\setlength{\tabcolsep}{20pt}
+
+\begin{tabular}{l l}
+
+\textit{M}:  &  The number of travelling days \\ \textit{C}: & The moderation
+of activities (ie. the greater the \\ & C value, the more activities are
+generated in \\ & a day) \\  \end{tabular} \\ \\ The objective function of our
+itinerary planner is:
+
+\[ \text{MAX}  \sum_{m=0}^{M} ( S_{{D_m}} + S_{{E_m}}) \] where: \\
+\begin{tabular}{l l}
+% \textit{i,j}:  &  POI (\textit{i,j} = 2,3,...,\textit{N}) \\
+\textit{m} & Travelling day (\textit{m}=1,2,...,\textit{M}) \\ \textit{$D_m$} &
+Morning section of day number m \\  \textit{$E_m$} & Evening section of day
+number m \\  \textit{$S_{D_m}$} & Score of the morning $D_m$ \\
+\textit{$S_{E_m}$} & Score of the $E_m$ \\  \end{tabular} \\ \\ A day is made
+up of the morning ${D_m}$ section and the evening ${E_m}$ section. The morning
+section is made up of $C + 2$ places. and the evening section is made up of $2$
+places. 
+
+\[D_m = Y_i + Y_f + C ( Y_i) \] \[E_m = Y_f + Y_j \]
+
+\begin{tabular}{l l}
+
+\textit{i} & Morning Tourist attraction (i = 1, 2, 3,…, $n_1$)\\ \textit{j} &
+Evening Tourist attraction (j = 1,2, 3,…, $n_2$)\\ \textit{f} & Food Place (f =
+1,2, 3,…, $n_3$)\\ \textit{$Y_{i/f/j}$}: & 1 if a tourist visit attraction
+i/j/f and  0 if otherwise\\ \end{tabular} \\ \\ \begin{tabular}{l l}
+\textbf{Constraints} & \\ \textit{$ \sum_{m=0}^{M}\sum_{i=0}^{n_1}{Y_i} \leq
+1$} & Ensures that a morning tourist attraction is \\ & visited only once\\
+
+\textit{$ \sum_{m=0}^{M}\sum_{j=0}^{n_1}{Y_j} \leq 1$} & Ensures that an
+evening tourist attraction is \\ & visited only once\\
+
+\end{tabular}
+
+\subsubsection{Calculation of Score}
+
+The score $S_{D_m}$ or $S_{E_m}$ is calculated using
+
+\[ S_{D_m | E_m} =  \]
+
+\begin{enumerate} \item the total duration from each tourist attraction \item
+the rating of each tourist attraction \item how much the tourist attractions
+match the user's travel interest vector.  \end{enumerate}
+
+\end{document}
+
+

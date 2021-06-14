@@ -1,0 +1,70 @@
+\subsection{Methods of retrieving travel products}
+
+Before producing an itinerary, RSs have to formulate a dataset of POIs from
+some data source. The proposed tour recommendation algorithm will then evaluate
+a guided path, route or itinerary from this dataset after understanding the
+users' implicit preferences such as the travel date and activity moderation. There are several ways to identify an appropriate
+data source representing real-life tourist trajectories.  
+
+
+\paragraph{Geotag mining:} One approach is made by gathering tourist products by mining them from
+geotagged images of Location-Based Social Networks (LSBN) such as Flickr,
+Facebook or Twitter~\cite{DeChoudhury2010, Memon2015, Lucchese2012, Lim2018a,
+HuiLim, HuiLima, Kurashima2013, Kurashima2010, Brilhante2013, Brilhante2015 }.
+Lim et al.~\cite{Lim2018} denote this process into three steps; 
+
+
+\begin{enumerate}
+
+\item First, the application assembles an organised series of relevant
+    photographs of the user's destination from the LSBN.\@
+
+\item The application then maps these pictures with a list of popular places
+    extracted from sites like Wikipedia.
+
+\item Since the photos contain metadata, like the location and the timestamps;
+    the application can calculate an approximate visit duration for each
+    specific POI.\
+
+\end{enumerate}
+
+\paragraph{GPS-based data sources:}
+The ubiquitous presence of smartphones and
+GPS-enabled devices has facilitated
+another approach to collecting trajectories~\cite{10.1145/1889681.1889683,
+10.1145/1526709.1526816, Chen2011a}. A system
+can automatically gather the best POIs to visit based on other users'
+historical paths providing additional information such as the average time
+people spend at a specific POI and how many people go there. However, privacy
+issues are the main caveat towards this approach since it requires people to
+share their location constantly and publically\cite{Lim2018}.
+
+\paragraph{Prebuilt dataset:} The most straightforward method is done by self-defining the POIs or gathering
+them from a dataset such as the TSPLIB95~\footnote{Sample instances for
+travelling salesman Problem:
+http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/}. Manually collecting
+travel products provides precision and a better understanding of the itinerary
+that the algorithm will generate. However, the algorithm would be
+dataset-specific testified and personalised towards what the authors of the
+dataset think are the best POIs to visit in a location~\cite{Chou2021a,
+Wisittipanich2020, Erbil}.
+
+\paragraph{Maps APIs:} A prompt and accurate strategy towards gathering essential places in the
+vicinity is using Mapping \& Location APIs such as Foursquare's, Google's or
+TripAdvisor's. Wörndl et al.\cite{Worndl2017} use this approach and build a
+dataset of prominent POIs by querying the API with the user's desired location.
+In return, they receive a sequence of places and information about each site,
+including its category, other user's ratings, opening hours, coordinates and
+helpful additional information to use as criteria for the itineraries. However,
+the API does not return the average amount of time people spend at a specific
+POI.Wörndl et al.\cite{Worndl2017} solve this issue by adding a fixed time
+constant for each category with a variable dependant on the POI's score. For
+example, suppose a restaurant's time constant is 45 minutes, and the chosen
+restaurant has a high score (based on its rating and user's characteristics).
+In that case, the time spent at the restaurant will increase by an additional
+15 minutes. A significant advantage of using this approach is that the vast
+number of POIs that these endpoints return. According to Google's website, the
+API contains up to 200 million places with 25 million updates daily which an
+application can achieve with a few REST requests\cite{iltifat2014generation, googleSite}.
+
+
