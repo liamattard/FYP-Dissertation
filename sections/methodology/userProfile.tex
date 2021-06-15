@@ -1,26 +1,33 @@
 
 \subsection{Generating the User Profile}
 Social media's effect on the world is something significant~\cite{Miller2016}.
-That is why the application builds a user profile from
+That is why this application builds a user profile from
 the user's social media. 
 
 The application built by Lim et al.~\cite{Lim2018a} allowed the user to connect
 the application with their Flickr profile to scan their past trips. However,
 Facebook provides an API that would allow users to connect both their Facebook
 and Instagram accounts and request content from the user with their permission.
-A significant advantage is that the API allows the application not to limit the
-application with the user's trips. The app requests two things from the
+A significant advantage is that the API allows the
+application not to limit the results to mimic only
+past user's trips like the application by Lim et al.~\cite{Lim2018a} and gather
+preferences from his complete profile.
+The app requests two things from the
 potential tourist's social media, the photos and the liked pages and tries to
 classify these into six categories that make up the user's travel interest
 vector; 
 
-[   
-1 Beach,
-2 Nature,
-3 Shopping,
-4 Museums,
-5 Clubbing,
-6 Bars ]
+\begin{center}
+    [   
+    1 Beach,
+    2 Nature,
+    3 Shopping,
+    4 Museums,
+    5 Clubbing,
+    6 Bars ]
+    
+\end{center}
+
 
 
 These categories are the same categories that we requested from the google maps
@@ -33,6 +40,7 @@ app classifies both the user's liked pages and the user's photos separately in
 the upcoming subsections.
 
 \subsubsection{Transforming the liked pages into the travel interest vector}
+
 The Facebook API allows the application to request each category of the user's
 liked Facebook pages. The API's documentation contains a whole list of possible
 categories. 
@@ -46,4 +54,18 @@ vector values. For example, if a user likes a page with class `DJ', the user's
 clubbing vector value is incremented, and if a page is labelled as a
 `Mountain', the app increments the user's nature vector value.
 
-\subsubsection{Transforming the liked pages into the travel interest vector}
+\subsubsection{Transforming the user's photos into the travel interest vector}
+
+
+Convolutional Neural Networks are used to classify an
+image because of their high accuracy.\@
+%TODO: Cite Zhao
+
+Therefore, we decided to test out two approaches for
+classifying the photos into the app's six categories. 
+
+Since the places365 model is not specifically trained
+on the six categories that this application is based
+on, we wanted to compare a model directly on trained
+on the categories with places 365 models. 	
+
