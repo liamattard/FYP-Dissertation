@@ -57,15 +57,57 @@ clubbing vector value is incremented, and if a page is labelled as a
 \subsubsection{Transforming the user's photos into the travel interest vector}
 
 
-Convolutional Neural Networks are used to classify an
-image because of their high accuracy.\@
-%TODO: Cite Zhao
+Convolutional Neural Networks have become a standard
+for classifying an image because of their high
+accuracy~\cite{Zhou2018}. Therefore, we decided to test
+out two approaches for classifying the photos into the
+app's six categories. 
 
-Therefore, we decided to test out two approaches for
-classifying the photos into the app's six categories. 
+Zhou et al.~\cite{Zhou2018}.trained several CNNs on the
+places365-standard  dataset of about 1.8 million
+images to classify an image into 365 different scene
+categories. However, the places365 model is not
+specifically trained on the six categories of our
+application. Therefore, we need to carefully map the
+365 categories with our six application's categories.
+We also introduced a Tensorflow Keras
+sequential model, explicitly trained on the six
+application's categories to compare.
 
-Since the places365 model is not specifically trained
-on the six categories that this application is based
-on, we wanted to compare a model directly on trained
-on the categories with places 365 models. 	
+We used the Resnet places365 models, Resnet-18 and
+Resnet-50 since they achieved the highest top-5
+validation accuracy on the places365 dataset. The
+Resnet 18 comprises 18, and the Resnet 50 comprises 50
+convolutional layers. They both converge an output
+layer representing the 365 output categories.  Figure
+\ref{Resnet} shows a summary of the whole Resnet 18 model. 
+
+
+The Tensorflow Keras Sequential model comprises three
+convolutional layers with a rectified linear unit
+(ReLu) activation function. A pooling layer follows
+each to lower the input volume's spatial dimension for
+the upcoming layers. The final layer represents a
+flattening layer and two dense layers to reduce the
+outputs to the six application categories, and another
+layer representing the `None' classification. Figure~\ref{Keras}
+shows a summary of the whole model. The dataset
+comprises X public internet images representing the
+seven classes: Beach, Nature, Museums, Shopping,
+Clubbing, Bars and None.
+
+\begin{figure}[!tbp]
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=0.8\textwidth]{KerasSequential.png}
+    \caption{Keras Sequential Architecture Summary}
+    \label{Keras}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+\includegraphics[width=0.8\textwidth]{Resnet.png}
+\caption{Resnet 18 Architecture Summary}
+\label{Resnet}
+  \end{minipage}
+\end{figure}
 

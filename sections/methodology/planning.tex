@@ -26,10 +26,10 @@ vector. The predefined constants are:
 
 Kennedy et al.~\cite{Kennedy} proposed the original PSO algorithm in
 1995 designed to solve optimisation problems. The
-algorithm is a population-based technique that uses n
+algorithm is a population-based technique that uses \textit{n}
 elements called particles. Each particle has a
-d-dimensional position vector representing a solution
-and a d-dimensional velocity vector expressing the
+d-dimensional \textit{position} vector representing a solution
+and a d-dimensional \textit{velocity} vector expressing the
 direction of the particle during its search period. 
 
 When a PSO program initialises all of the particles,
@@ -37,11 +37,17 @@ they are usually set to a random or predetermined
 value. In our algorithm, we introduce a method of
 randomisation bias. Although the initial particles are
 generated randomly, the randomness is weighted and
-affected by three things: The user's travel interest
-vector the place's rating the place's number of
-ratings.  We implemented the randomness bias to give a
+affected by three things: 
+\begin{enumerate}
+    
+    \item The user's travel interest vector 
+    \item the place's rating 
+    \item the place's number of ratings.
+
+\end{enumerate}
+  We implemented the randomness bias to give a
 head start to the algorithm rather than just starting
-optimising through a purely random itinerary. Figure X
+optimising from purely random itineraries. Figure X
 shows an example of a sample place with its
 probability of being chosen as part of the initial
 particles alongside a sample tourist interest vector.
@@ -53,9 +59,14 @@ inertia constant helps the particle explore new
 solutions and escape the local minima. After a few
 iterations have passed, particles use this velocity
 and move towards the optimum position. We demonstrate
-the framework of the PSO algorithm in Figure X.
+the framework of our PSO algorithm in Figure~\ref{FlowChart}.
 
-%TODO: Figure 2 array diagram
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{FlowChart.png}
+\caption{Framework of PSO algorithm}
+\label{FlowChart}
+\end{figure}
 
 \subsection{Web application implementation and user
 interface}
@@ -63,12 +74,11 @@ interface}
 We built the application using several technologies
 where each communicates with each other to provide a
 user-friendly website for the potential tourist.
-Figure \ref{TechStack} shows the tech stack diagram of the website.
+Figure~\ref{TechStack} shows the tech stack diagram of the website.
 The website is accessible through the URL
-www.touristplanner.xyz. We built the front end of the
-website using HTML, CSS and javascript and hosted it
-on a cloud Vultr server.  Figure X shows how the
-design is responsive to be accessible from both a
+\url{https://www.touristplanner.xyz}. We built the front end of the website using HTML, CSS and javascript and hosted it
+on a cloud Vultr server. The website is 
+responsive to be accessible from both a
 mobile phone and a laptop. The website communicates
 with the back end of the application using REST
 endpoints, hosted on a separate dedicated server
