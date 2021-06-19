@@ -63,40 +63,66 @@ accuracy~\cite{Zhou2018}. Therefore, we decided to test
 out two approaches for classifying the photos into the
 app's six categories. 
 
-Zhou et al.~\cite{Zhou2018}.trained several CNNs on the
-places365-standard  dataset of about 1.8 million
-images to classify an image into 365 different scene
-categories. However, the places365 model is not
-specifically trained on the six categories of our
-application. Therefore, we need to carefully map the
-365 categories with our six application's categories.
-We also introduced a Tensorflow Keras
-sequential model, explicitly trained on the six
+Zhou et al. \cite{Zhou2018} trained several CNNs for
+scene recognition and generic deep scene features for
+visual identification. However, the places365 models
+are not explicitly trained on the six categories of
+our application. Therefore, we need to carefully map
+the 365 categories with our six application's
+categories. That is why we introduced a Tensorflow
+Keras sequential model, explicitly trained on the six
 application's categories to compare.
 
-We used the Resnet places365 models, Resnet-18 and
-Resnet-50 since they achieved the highest top-5
-validation accuracy on the places365 dataset. The
-Resnet 18 comprises 18, and the Resnet 50 comprises 50
-convolutional layers. They both converge an output
-layer representing the 365 output categories.  Figure
-\ref{Resnet} shows a summary of the whole Resnet 18 model. 
+\paragraph{Pretrained Places365 models:} These models
+are trained on the places365-standard dataset of about
+1.8 million images to classify an image into 365
+different scene categories. We used the Resnet
+places365 models, Resnet-18 and Resnet-50 since they
+achieved the highest top-5 validation accuracy on the
+places365 dataset. The Resnet 18 comprises 18, and the
+Resnet 50 comprises 50 convolutional layers. They both
+converge to an output layer representing the 365
+output categories.  Figure \ref{Resnet} shows a
+summary of the whole Resnet 18 model.
+
+\paragraph{Trained Tensorflow Keras model: } This
+model contains three convolutional layers with a
+rectified linear unit (ReLu) activation function. A
+pooling layer follows each to lower the input volume's
+spatial dimension for the upcoming layers. The final
+layer represents a flattening layer and two dense
+layers to reduce the outputs to the six application
+categories, and another representing the 'None'
+classification. Figure ~\ref{Keras} shows a summary of
+the whole model. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{Augmentation.png}
+\caption{Data augmentation to reduce overfitting}
+\label{Augmentation}
+\end{figure}
+
+The dataset contains 3600 public internet images
+representing the seven classes: Beach, Nature,
+Museums, Shopping, Clubbing and Bars and None. The
+tensor library provides tools to Split the dataset
+into a training and validation set Distribute the
+photos into batches of 32 Cache the dataset to memory
+to prevent I/O blocking All of the images were resized
+to 180x180 pixels, and the RGB values were normalised
+from zero to one.  	Since the dataset is small
+compared to the places 365 models, the training
+process is prone to overfitting. Data augmentation
+generates additional samples using random
+transformations on the dataset. Figure \ref{Augmentation} shows an
+example of data augmentation on a photo. We also added
+a dropout layer to the model randomly drops sets the
+input values of the neuron. These two techniques help
+the model avoid overfitting.
 
 
-The Tensorflow Keras Sequential model comprises three
-convolutional layers with a rectified linear unit
-(ReLu) activation function. A pooling layer follows
-each to lower the input volume's spatial dimension for
-the upcoming layers. The final layer represents a
-flattening layer and two dense layers to reduce the
-outputs to the six application categories, and another
-layer representing the `None' classification. Figure~\ref{Keras}
-shows a summary of the whole model. The dataset
-comprises X public internet images representing the
-seven classes: Beach, Nature, Museums, Shopping,
-Clubbing, Bars and None.
-
-\begin{figure}[!tbp]
+\begin{figure}[H]
   \centering
   \begin{minipage}[b]{0.4\textwidth}
     \includegraphics[width=0.8\textwidth]{KerasSequential.png}

@@ -33,12 +33,32 @@ used to gather cafeteria related places in Malta. These
 categories are based on the ones used by Wörndl et al.~\cite{Worndl2017} for their
 application.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{SampleQuery.png}
-\caption{Sample Query being made to the google maps nearby search endpoint}
+
+\begin{table}
 \label{SampleQuery}
-\end{figure}
+\caption{Sample Query being made to the google maps nearby search endpoint} \label{t:tab}
+
+\centerline{
+  \begin{tabular}{|l|c|c|} 
+ \hline
+  \textbf{Key} & \textbf{Value} \\ 
+ \hline
+ location & 35.93575, 14.3754 \\ 
+ radius& 50000 \\ 
+ type & cafe \\ 
+ keyword & must visit tourist \\ 
+ \hline
+  \end{tabular}
+}
+\end{table}
+
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=0.8\textwidth]{SampleQuery.png}
+%\caption{Sample Query being made to the google maps nearby search endpoint}
+%\label{SampleQuery}
+%\end{figure}
 
 
 In return, the API returns a list of places of the specified area and category
