@@ -89,12 +89,13 @@ summary of the whole Resnet 18 model.
 model contains three convolutional layers with a
 rectified linear unit (ReLu) activation function. A
 pooling layer follows each to lower the input volume's
-spatial dimension for the upcoming layers. The final
-layer represents a flattening layer and two dense
-layers to reduce the outputs to the six application
-categories, and another representing the 'None'
-classification. Figure ~\ref{Keras} shows a summary of
-the whole model. 
+spatial dimension for the upcoming layers. The first
+layer is a rescaling layer that resizes an image to
+180$\times$180 pixels. The final layer represents a
+flattening layer and two dense layers to reduce the
+outputs to the six application categories, and another
+representing the `None' classification. Figure
+~\ref{Keras} shows a summary of the whole model.
 
 \begin{figure}[h]
 \centering
