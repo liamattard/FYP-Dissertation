@@ -1,0 +1,85 @@
+
+
+
+\setlength{\tabcolsep}{20pt}
+
+Consider a set of POIs \[P = {p_1,p_2,\ldots,p_N}\]
+\\
+where:
+\\
+
+\begin{tabular}{l l}
+
+
+\textit{p}:  &  A POI having the latitude, longitude, category,\\
+ & price, and corresponding set of opening hour constraints \\
+\end{tabular}
+\\
+\\
+\\
+
+The objective function of OP is:
+
+\[ \text{MAX}  \sum_{i=2}^{N-1} \sum_{j=2}^{N} {s_i}{x_{ij}} \]
+where:
+\\
+\begin{tabular}{l l}
+% \textit{i,j}:  &  POI (\textit{i,j} = 2,3,...,\textit{N}) \\
+\textit{$s_i$} & score of visiting node i \\
+\textit{$x_{ij}$} & if a visit by POI i is followed by POI j (0 otherwise)\\
+
+\end{tabular}
+\\
+\\
+
+\textbf{Constraints} 
+
+\begin{multicols}{2}
+\begin{equation} 
+    \label{constraintOne}
+    \sum_{j=2}^{N} p_1j = \sum_{i=1}^{N-1} p_{iN}= 1
+\end{equation}
+
+\begin{equation} 
+    \label{constraintTwo}
+    \sum_{i=1}^{N-1} \sum_{j=2}^{N} t_{i}x_{ij}<= Tmax
+\end{equation}
+
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\begin{equation} 
+    \label{constraintThree}
+    \sum_{i=1}^{N-1} x_{ir} = \sum_{j=2}^{N} x_{ij} \geq 1  r = 2, \ldots, N-1
+\end{equation}
+
+\begin{equation} 
+    \label{constraintFour}
+    2 \geq u_i \geq N 
+\end{equation}
+\end{multicols}
+
+\begin{equation} 
+    \label{constraintFive}
+    u_i - u_j + 1 \geq (N-1)(1-x_{ij})
+\end{equation}
+
+where:
+
+\begin{tabular}{l l}
+\textit{$t_{ij}$} & travel time from i to j \\
+\textit{T} & maximum time \\
+\textit{$u_i$} & position of i in route\\
+
+               & \\
+
+\end{tabular}
+
+
+Constraint~\ref{constraintOne} ensures that the path starts at POI 1 and ends at POI N.
+Constraint~\ref{constraintTwo} limits the total travel time.
+Constraint~\ref{constraintThree} ensures that each POI is visited only once.
+Constraint~\ref{constraintFour} and constraint~\ref{constraintFive}ensures that there are no subtours.
+\\

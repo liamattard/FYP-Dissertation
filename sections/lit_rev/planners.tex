@@ -1,36 +1,75 @@
 \subsection{Travel Planners for both individual and grouped travellers}
 
-This section will focus on breaking down existing meta-heuristic approaches,
-notably swarm-based, trajectory-based and evolutionary algorithms, towards the
-vast number of variants of the TTDP.\@ Gavalas et al. (Gavalas 2014) classify
-these variants into two; Systems that produce a single route and systems that
-can handle multiple days. 
+This section will analyse existing optimisation
+techniques for TTDP solutions. These include
+swarm-based, trajectory-based and evolutionary
+algorithms. Gavalas et al.~\cite{Gavalas2014a}
+classify TTDP variants into two; Systems that produce
+a single route and systems that can handle multiple
+days. 
+
+Trip planner applications aim to offer tourists
+information in a unified and centralised manner,
+providing them with a plan for their trip. Two domains
+develop current applications: methods for obtaining
+POIs and tour recommendation algorithms that create
+tourist trips, as shown in Figure \ref{RS}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{RSProcess.png}
+\caption{Trip Planner Applications Process.}
+\label{RS}
+\end{figure}
+
+\subsubsection{Collecting the Points of Interests}
+
+Before producing an itinerary, the tourist planners have to
+formulate a dataset of POIs from some data source. There are
+several ways to identify an appropriate data source representing
+real-life tourist trajectories. 
+
+One approach is made by gathering tourist products by mining them from
+geotagged images of Location-Based Social Networks (LSBN) such as Flickr,
+Facebook or Twitter~\cite{DeChoudhury2010, Memon2015, Lucchese2012, Lim2018a,
+HuiLim, HuiLima, Kurashima2013, Kurashima2010, Brilhante2013, Brilhante2015 }.
+
+The ubiquitous presence of smartphones and GPS-enabled devices
+could help gather the best POIs to visit based on other users'
+historical paths~\cite{10.1145/1889681.1889683,
+10.1145/1526709.1526816, Chen2011a}. However, privacy issues are the main caveat
+towards this approach since it requires people to share their
+location constantly and publically\cite{Lim2018}..
+
+A prompt and accurate strategy towards gathering essential places
+in the vicinity uses Mapping \& Location APIs such as Foursquare,
+Google or TripAdvisor. Worndl et al.\cite{Worndl2017} use this approach and build a
+dataset of prominent POIs by querying their API with the user's
+desired location. In return, they receive a sequence of places and
+information about each site, including its category, other user's
+ratings, opening hours, coordinates and helpful additional
+information to use as criteria for the itineraries.
 
 
 \subsubsection{Single Route Problems}
 
-The Orienteering Problem (OP), introduced by Tsiligirdes~\cite{Tsiligirides1984},
-in observance of the sport, orienteering, is the foundation of single route planners. 
-Figure~\ref{variants} shows the variants of the OP that will be discussed in
-this section and how they relate with the original problem.
-TTDPs~\cite{Herzog2020}. Vansteenwegen et al.~\cite{Vansteenwegen2011b} describe
-OP as a travelling salesman problem with profits. In OP, several nodes $V$
-representing POIs where \{$V= {v_1,\ldots,v_n}$\}, are designated in a space
-$G$ and edge set $E$ with a starting and an ending
-point. Each node holds a score $s$ calculated from the tourist's constraints
-and the distance from node $v_i$ to $v_j$. The
-objective is to visit a subset of these locations, maximising the $s$ by
-obeying the tourist's constraints and minimising the travel
-time~\cite{Sylejmani2017}. Vansteenwegen et al.~\cite{Vansteenwegen2011}
-mathematically formulate the OP and the methodology contains a mathematical formulation
-of this instance of the TTDP.\@
+The Orienteering Problem (OP), introduced by Tsiligirdes~\cite{Tsiligirides1984}, is the foundation of
+single route planners in observance of the sport, orienteering. There are
+various types of OPs that include different constraints, such as time windows
+and time dependency, as shown in figure ~\ref{variants}. The OP can be represented as a
+travelling salesman problem with profits. Gavalas et al. and Vansteenwegen et al.~\cite{Gavalas2014a, Vansteenwegen2011b}
+mathematically formulate the OP as follows:
+
+\input{sections/lit_rev/maths.tex}
+
+
 % TODO: (Include Short Maths Formula, maybeone done by Kobeaga2018)
 
 
 \begin{figure}[h]
-\Tree [.{Orienteering Problem (Single Route)} {\ldots} .{Op with Time Windows}  {Time-Dependent OP} 
-[{\ldots} ].{Team OP (Multi-Route)} !{\qframesubtree} ]
-\caption{Graph showing the variants that will be discussed in the section}
+\Tree [.{Orienteering Problem (Single Route)} .{Op with Time Windows}  {Time-Dependent OP} 
+{Team OP (Multi-Route)} !{\qframesubtree} ]
+\caption{Some Variants of the Orienteering Problem}
 \label{variants}
 \end{figure}
 
