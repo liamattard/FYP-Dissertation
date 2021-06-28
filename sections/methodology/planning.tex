@@ -19,6 +19,8 @@ vector. The predefined constants are:
 \\
 \input{sections/methodology/maths.tex}
 
+\input{sections/methodology/travelProducts.tex}
+
 \subsubsection{Particle Swarm Optimisation}
 
 %TODO: Short description of PSO PSO with bias randomisation
@@ -67,6 +69,34 @@ the framework of our PSO algorithm in Figure~\ref{FlowChart}.
 \end{figure}
 
 \subsubsection{Genetic Algorithm}
+Genetics algorithms use biological terms to describe
+their attributes. For example, in this algorithm, a
+timetable solution in population is referred to as a
+chromosome. (cite)
+
+The first step is to generate a random population, and
+we use the same random bias. In PSO, the algorithm
+optimises by allowing each particle to move closer to
+the global best every iteration. In comparison, in
+GAs, first, the best chromosomes known as the elites
+are selected from each iteration. Then, three
+techniques, namely selection, mutation, and crossover,
+are applied to generate the next population. We show
+the framework of this algorithm in figure X. 
+
+\paragraph{Selection}:
+
+\paragraph{Mutation}:
+
+\paragraph{Crossover}:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{GAFlowchart.png}
+\caption{Framework of Genetic algorithm}
+\label{FlowChart}
+\end{figure}
+
 
 \subsection{Web application implementation and user
 interface}
@@ -111,3 +141,5 @@ social media profiles.  The user selects the number of
 days M and the activity moderation C.  The website
 navigates to the final page of the application
 exhibiting their personalised itinerary. 
+
+\subsection{In-Depth Semi Structured Interviews}

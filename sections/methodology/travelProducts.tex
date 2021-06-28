@@ -1,9 +1,8 @@
-\subsection{Retrieving travel products}
+\subsubsection{Retrieving the Points of Interests Dataset}
 
-We implemented the Google Maps API as the data source for our application
-because of its real-time accuracy and massive dataset compared with the other
-approaches and other APIs that we discussed in the literature review
-~\cite{googleSite, iltifat2014generation}. In addition, the nearby search
+We used the Google Maps API as the data source for our application
+because of its accuracy and updated dataset compared with the other
+approaches and other APIs ~\cite{googleSite, iltifat2014generation}. In addition, the nearby search
 endpoint allows the app to search
 for places of a given category within a specified
 area. In order to retrieve the places for the
@@ -27,15 +26,7 @@ during the night:
     
 \end{center}
 
-
-Figure~\ref{SampleQuery} shows the query parameters 
-used to gather cafeteria related places in Malta. These
-categories are based on the ones used by Wörndl et al.~\cite{Worndl2017} for their
-application.
-
-
 \begin{table}
-\label{SampleQuery}
 \caption{Sample Query being made to the google maps nearby search endpoint} \label{t:tab}
 
 \centerline{
@@ -50,7 +41,15 @@ application.
  \hline
   \end{tabular}
 }
+\label{SampleQuery}
 \end{table}
+
+Table~\ref{SampleQuery} shows the query parameters 
+used to gather cafeteria related places in Malta. These
+categories are based on the ones used by Wörndl et al.~\cite{Worndl2017} for their
+application.
+
+
 
 
 %\begin{figure}[h]
@@ -63,10 +62,7 @@ application.
 
 In return, the API returns a list of places of the specified area and category
 and attributes about each place. The attributes used by our application include
-the place's name, rating, the number of reviews and the coordinates. All of
-these attributes help the application further optimise the algorithm to find
-the perfect itinerary. 
-
+the place's name, rating, the number of reviews and the coordinates. 
 %\begin{lstlisting}
 
   %"results": [
