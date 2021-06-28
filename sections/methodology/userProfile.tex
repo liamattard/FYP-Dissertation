@@ -5,35 +5,34 @@ Many people are present on social media posting
 pictures of their travel moments~\cite{Miller2016}. For this reason, we opted to
 build a user profile from the user's online presence.
 
-A travel interest vector represents the user profile,
-an array of 6 integers where each element represents a
-POI category. At the start of the application, the
-travel interest vector is initialised with zero
-values, and the app increments a category whenever the
-user's content matches one of the following categories:
+A travel interest vector is made up a vector of six integer values
+\[<v_0, v_1, v_2, v_3, v_4, v_5>\] representing the user profile.
+Each element represents the following POI categories respectively: 
 
 \begin{center}
-    [   
-    1 Beach,
-    2 Nature,
-    3 Shopping,
-    4 Museums,
-    5 Clubbing,
-    6 Bars ]
+    $<$
+    0 Beach,
+    1 Nature,
+    2 Shopping,
+    3 Museums,
+    4 Clubbing,
+    5 Bars $>$
     
 \end{center}
 
-After the data collection process is complete, the
-vector is normalised. The first four morning and last
-two evening values are normalised separately from a
-range of 0 to 1.
+At the start of the application, the
+travel interest vector is initialised with zero
+values, and the app increments a category whenever the
+user's content matches. $v_0$ to $v_3$ represents morning categories
+and $v_4$, $v_5$ represent evening categories. After
+the data collection process is complete, the
+morning and evening vector values are normalised independently. 
 
 Facebook's API that allows users to connect both their Facebook
 and Instagram accounts and request content from the user with their permission.
 The app requests the photos and the liked pages used to 
 populate the user's travel interest
-vector; 
-\pagebreak
+vector. 
 
 \subsubsection{Transforming the liked pages into the travel interest vector}
 
@@ -76,8 +75,8 @@ achieved the highest top-5 validation accuracy on the
 places365 dataset. The Resnet 18 comprises 18, and the
 Resnet 50 comprises 50 convolutional layers. They both
 converge to an output layer representing the 365
-output categories.  Figure \ref{Resnet} shows a
-summary of the whole Resnet 18 model.
+output categories.  Figure \ref{Models} shows a
+summary of the whole Resnet 18 model architecture.
 
 \paragraph{Trained Tensorflow Keras model: } This
 model contains three convolutional layers with a
@@ -89,7 +88,7 @@ layer is a rescaling layer that resizes an image to
 flattening layer and two dense layers to reduce the
 outputs to the six application categories, and another
 representing the `None' classification. Figure
-~\ref{Keras} shows a summary of the whole model.
+~\ref{Models} shows a summary of the whole model.
 
 \begin{figure}[h]
 \centering
@@ -116,19 +115,25 @@ a dropout layer to the model randomly drops sets the
 input values of the neuron. These two techniques help
 the model avoid overfitting.
 
-
-\begin{figure}[H]
-  \centering
-  \begin{minipage}[b]{0.3\textwidth}
-    \includegraphics[width=1.1\textwidth]{KerasSequential.png}
-    \caption{Keras Sequential Architecture Summary}
-    \label{Keras}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.3\textwidth}
-\includegraphics[width=1.1\textwidth]{Resnet.png}
-\caption{Resnet 18 Architecture Summary}
-\label{Resnet}
-  \end{minipage}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{Models.png}
+\caption{Model Architectures}
+\label{Models}
 \end{figure}
+
+%\begin{figure}[H]
+  %\centering
+  %\begin{minipage}[b]{0.3\textwidth}
+    %\includegraphics[width=1.1\textwidth]{KerasSequential.png}
+    %\caption{Keras Sequential Architecture Summary}
+    %\label{Keras}
+  %\end{minipage}
+  %\hfill
+  %\begin{minipage}[b]{0.3\textwidth}
+%\includegraphics[width=1.1\textwidth]{Resnet.png}
+%\caption{Resnet 18 Architecture Summary}
+%\label{Resnet}
+  %\end{minipage}
+%\end{figure}
 

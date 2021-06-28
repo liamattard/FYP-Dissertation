@@ -1,6 +1,12 @@
 \section{Introduction}
 \label{Introduction}
 
+Planning for a trip is a challenging task due to the
+variety of real-life constraints. This chapter will
+discuss the main research problem confronting
+automatic tourist planning along with this
+dissertation's objectives and proposed solution.
+
 \subsection{Problem Definition}
 Leisure travelling is an impactful industry
 whose economic importance significantly improves each
@@ -25,11 +31,11 @@ create a feasible plan. Figure~\ref{TTDP} shows an example
 of the TTDP,  where a tourist has to form a timetable
 that balances between the POI's rating and location
 while satisfying the various trip constraints. 
-The TTDP is an NP-hard problem where rigorous
+The TTDP is an NP-hard problem where complete 
 %TODO: ask about rigorous
 algorithms only manage to optimise with a small number
 of POIs. Therefore, many approximate algorithms,
-namely heuristics and meta-heuristic approaches, work
+namely heuristic and meta-heuristic approaches, work
 %TODO: ask about this
 to converge solutions with complex alternatives to
 this problem.Section
@@ -40,7 +46,8 @@ variants.
 Nevertheless, the few existing systems that provide
 users with an itinerary or route require a lengthy
 process of manually gathering the users' likes and
-constraints or information from past trips. Therefore, we ask the following question: 
+constraints or information from past trips. Therefore, 
+we will try to answer the following research question:
 
 
 \begin{center}
@@ -55,35 +62,10 @@ holiday?}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.65\textwidth]{TTDP.png}
+\includegraphics[width=0.7\textwidth]{TTDP.png}
 \caption{Example of a tourist planning problem}
 \label{TTDP}
 \end{figure}
-
-\subsection{Proposed Solution}
-
-To address this problem, we present an application
-that helps tourists travel by providing them with a
-complete itinerary for their upcoming holiday using
-several optimisation algorithms, namely, Genetic
-Algorithms (GA) and Particle Swarm Optimisation (PSO).
-
-With the prevalence of social media and data-driven
-approaches, we also automate gathering users' POI
-desires by scanning their social media profile using
-machine learning classification approaches through
-Convolutional Neural Networks (CNN).
-
-The results from the evaluation section~\ref{evaluation}
-show that we were able to classify the user's photos
-and liked pages into a travel interest vector that automatically
-describes the user's characteristics. We were also able to provide optimisation
-techniques that converge to the timetables with the
-best scores given a set of tourist constraints.
-In-depth semi-structured interviews with several
-participants continued to provide us with further
-detail on the accuracy of the user profiling algorithm
-and the resulting timetables. 
 
 \subsection{Motivation}
 
@@ -91,7 +73,7 @@ Our primary motivation behind this work is to
 introduce the automatic retrieval of user preferences
 for other travel planning applications. Currently,
 there is no mainstream application that provides
-tourists with a fully personalised plan with a quick
+tourists with a fully personalised plan from a quick
 and easy to use application.  We were also motivated
 by the idea of delivering one centralised system which
 organises the whole holiday rather than having to
@@ -99,8 +81,6 @@ spend time searching through the excessive amount of
 data online. This approach is better than bombarding
 potential tourists with many questions to understand
 the users' personalities.
-
-\subsection{Why the problem is non-trivial}
 
 Existing algorithms and tourist planners use
 heuristics to optimise solutions for the timetable
@@ -112,7 +92,7 @@ beneficial technique used by businesses to advertise
 their products by targeting only a specific audience
 \cite{article}.
 
-The problem is non-trivial since we combine both
+In this dissertation we combine both
 technologies to provide one system.
 
 \subsection{Aims and Objectives}
@@ -139,6 +119,33 @@ We will conduct the interviews by generating a
 personalised and non-personalised timetable for a
 holiday in Malta to have prior knowledge of the POIs
 and compare the effects of both itineraries.
+
+
+
+\subsection{Proposed Solution}
+
+To address this problem, we present an application
+that helps tourists travel by providing them with a
+complete itinerary for their upcoming holiday using
+several optimisation algorithms, namely, Genetic
+Algorithms (GA) and Particle Swarm Optimisation (PSO).
+
+With the prevalence of social media and data-driven
+approaches, we also automate gathering users' POI
+desires by scanning their social media profile using
+machine learning classification approaches through
+Convolutional Neural Networks (CNN).
+
+The results from the evaluation section~\ref{evaluation}
+show that we were able to classify the user's photos
+and liked pages into a travel interest vector that automatically
+describes the user's characteristics. We were also able to provide optimisation
+techniques that converge to the timetables with the
+best scores given a set of tourist constraints.
+In-depth semi-structured interviews with several
+participants continued to provide us with further
+detail on the accuracy of the user profiling algorithm
+and the resulting timetables. 
 
 \subsection{Document Structure}
 
