@@ -29,8 +29,8 @@ where:
 \textit{$x_{ij}$} & if a visit by POI i is followed by POI j (0 otherwise)\\
 
 \end{tabular}
-\\
-\\
+
+\pagebreak
 
 \textbf{Constraints} 
 
@@ -71,7 +71,7 @@ where:
 \begin{tabular}{l l}
 \textit{$t_{ij}$} & travel time from i to j \\
 \textit{T} & maximum time \\
-\textit{$u_i$} & position of i in route\\
+\textit{$u_i$} & position of POI i in route\\
 
                & \\
 
@@ -81,5 +81,5 @@ where:
 Constraint~\ref{constraintOne} ensures that the path starts at POI 1 and ends at POI N.
 Constraint~\ref{constraintTwo} limits the total travel time.
 Constraint~\ref{constraintThree} ensures that each POI is visited only once.
-Constraint~\ref{constraintFour} and constraint~\ref{constraintFive}ensures that there are no subtours.
+Constraint~\ref{constraintFour} and constraint~\ref{constraintFive} ensures that there are no subtours.
 \\
