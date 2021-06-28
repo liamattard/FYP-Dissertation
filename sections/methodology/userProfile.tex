@@ -1,21 +1,16 @@
 
 \subsection{Generating the User Profile}
-Social media's effect on the world is something significant~\cite{Miller2016}.
-That is why this application builds a user profile from
-the user's social media. 
 
-The application built by Lim et al.~\cite{Lim2018a} allowed the user to connect
-the application with their Flickr profile to scan their past trips. However,
-Facebook provides an API that would allow users to connect both their Facebook
-and Instagram accounts and request content from the user with their permission.
-A significant advantage is that the API allows the
-application not to limit the results to mimic only
-past user's trips like the application by Lim et al.~\cite{Lim2018a} and gather
-preferences from his complete profile.
-The app requests two things from the
-potential tourist's social media, the photos and the liked pages and tries to
-classify these into six categories that make up the user's travel interest
-vector; 
+Many people are present on social media posting
+pictures of their travel moments~\cite{Miller2016}. For this reason, we opted to
+build a user profile from the user's online presence.
+
+A travel interest vector represents the user profile,
+an array of 6 integers where each element represents a
+POI category. At the start of the application, the
+travel interest vector is initialised with zero
+values, and the app increments a category whenever the
+user's content matches one of the following categories:
 
 \begin{center}
     [   
@@ -28,30 +23,29 @@ vector;
     
 \end{center}
 
+After the data collection process is complete, the
+vector is normalised. The first four morning and last
+two evening values are normalised separately from a
+range of 0 to 1.
 
-
-These categories are the same categories that we requested from the google maps
-API except `cafeterias' and `restaurants'. These two categories were not
-included because the application tries to suggest the best places to eat as
-part of the timetable, irrelevant to the user's profile. At the start of the
-application, the app initialises all vector values to zero and increments a
-value whenever the user's content matches a category. We will describe how the
-app classifies both the user's liked pages and the user's photos separately in
-the upcoming subsections.
+Facebook's API that allows users to connect both their Facebook
+and Instagram accounts and request content from the user with their permission.
+The app requests the photos and the liked pages used to 
+populate the user's travel interest
+vector; 
+\pagebreak
 
 \subsubsection{Transforming the liked pages into the travel interest vector}
 
-The Facebook API allows the application to request each category of the user's
-liked Facebook pages. The API's documentation contains a whole list of possible
-categories. 
+The API's documentation contains a whole list of possible
+page categories. 
 %TODO: Add Url
 %https://www.facebook.com/pages/category. 
-
-The app iterates through
-all of these user's likes categories and increments a value in the user's
-vector whenever the Facebook result matches one of the six travel interest
-vector values. For example, if a user likes a page with class `DJ', the user's
-clubbing vector value is incremented, and if a page is labelled as a
+The app iterates through all of these user's liked
+page categories and increments a value in the travel
+interest vector whenever the Facebook result matches.
+For example, if a user likes a page with class `DJ',
+the user's clubbing vector value is incremented, and if a page is labelled as a
 `Mountain', the app increments the user's nature vector value.
 
 \subsubsection{Transforming the user's photos into the travel interest vector}
@@ -99,7 +93,7 @@ representing the `None' classification. Figure
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{Augmentation.png}
+\includegraphics[width=0.4\textwidth]{Augmentation.png}
 \caption{Data augmentation to reduce overfitting}
 \label{Augmentation}
 \end{figure}
@@ -125,14 +119,14 @@ the model avoid overfitting.
 
 \begin{figure}[H]
   \centering
-  \begin{minipage}[b]{0.4\textwidth}
-    \includegraphics[width=0.8\textwidth]{KerasSequential.png}
+  \begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=1.1\textwidth]{KerasSequential.png}
     \caption{Keras Sequential Architecture Summary}
     \label{Keras}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
-\includegraphics[width=0.8\textwidth]{Resnet.png}
+  \begin{minipage}[b]{0.3\textwidth}
+\includegraphics[width=1.1\textwidth]{Resnet.png}
 \caption{Resnet 18 Architecture Summary}
 \label{Resnet}
   \end{minipage}

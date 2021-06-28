@@ -5,7 +5,7 @@
 \begin{tabular}{l l}
 
 \textit{M}:  &  The number of travelling days \\
-\textit{C}: & The moderation of activities (ie. the greater the \\
+\textit{C}: & The activity pace (ie. the greater the \\
  & C value, the more activities are generated in \\
  & a day) \\  
 \end{tabular}
@@ -27,7 +27,16 @@ where:
 \end{tabular}
 \\
 \\
-A day is made up of the morning ${D_m}$ section and the evening ${E_m}$ section. The morning section is made up of $C + 2$ tourist attractions whilst the evening section is just made up of $2$. 
+
+A day is made up of the morning ${D_m}$ section and
+the evening ${E_m}$ section. The timetable suggests a
+POI in the morning, then somewhere to eat, and the
+rest is dependant on the activity pace C. That is why
+the morning section is made up of $C + 2$ tourist
+attractions. The evening section suggests a place to
+eat and a POI; therefore, the evening section is just
+made up of $2$. 
+
 
 \[D_m = Y_i + Y_f + C ( Y_i) \]
 \[E_m = Y_f + Y_j \]

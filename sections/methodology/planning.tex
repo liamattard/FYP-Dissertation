@@ -19,15 +19,12 @@ vector. The predefined constants are:
 \\
 \input{sections/methodology/maths.tex}
 
-\subsubsection{Particle Swarm optimisation algorithm}
+\subsubsection{Particle Swarm Optimisation}
 
 %TODO: Short description of PSO PSO with bias randomisation
 %Flow-chart/algorithm
-
-Kennedy et al.~\cite{Kennedy} proposed the original PSO algorithm in
-1995 designed to solve optimisation problems. The
-algorithm is a population-based technique that uses \textit{n}
-elements called particles. Each particle has a
+The algorithm is a population-based technique that uses \textit{n}
+elements called particles~\cite{Kennedy}. Each particle has a
 d-dimensional \textit{position} vector representing a solution
 and a d-dimensional \textit{velocity} vector expressing the
 direction of the particle during its search period. 
@@ -36,8 +33,8 @@ When a PSO program initialises all of the particles,
 they are usually set to a random or predetermined
 value. In our algorithm, we introduce a method of
 randomisation bias. Although the initial particles are
-generated randomly, the randomness is weighted and
-affected by three things: 
+generated randomly, the randomness is weighted 
+by three components: 
 \begin{enumerate}
     
     \item The user's travel interest vector 
@@ -45,28 +42,31 @@ affected by three things:
     \item the place's number of ratings.
 
 \end{enumerate}
-  We implemented the randomness bias to give a
+This bias gives a
 head start to the algorithm rather than just starting
-optimising from purely random itineraries. Figure X
+optimising from purely random itineraries, highly
+likely to be of bad quality. Figure X
 shows an example of a sample place with its
 probability of being chosen as part of the initial
 particles alongside a sample tourist interest vector.
-At each iteration in the algorithm, the velocity of
+At each iteration of the algorithm, the velocity of
 each particle is calculated based on the inertia
 constant and how well it is doing compared with its
-personal best score and the global best score. The
+own best score and the global best score. The
 inertia constant helps the particle explore new
 solutions and escape the local minima. After a few
 iterations have passed, particles use this velocity
 and move towards the optimum position. We demonstrate
 the framework of our PSO algorithm in Figure~\ref{FlowChart}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.4\textwidth]{FlowChart.png}
+\includegraphics[width=0.7\textwidth]{FlowChart.png}
 \caption{Framework of PSO algorithm}
 \label{FlowChart}
 \end{figure}
+
+\subsubsection{Genetic Algorithm}
 
 \subsection{Web application implementation and user
 interface}
