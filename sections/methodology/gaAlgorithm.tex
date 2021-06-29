@@ -3,22 +3,25 @@
 
  iter = x \;
  count = 0 \;
- particles = RandomBiasInitialiser(); \;
- bestParticle = particle[0] \;
+ population = RandomBiasInitialiser(); \;
 
  \While{count $>$ x}{
 
      i = 0 \;
      maxScore = 0 \;
+     topParents = [] \;
 
-     \While{i $<=$ particles.length}{
-
-         \tcc{Updating personal best}
+     \tcc{Evaluate fitness and save the elite individuals}
+     \While{i $<=$ population.length}{
+        \While{i $<=$ population.length}{
         \If{particles[i].score $>$ particles[i].personalBest.score}{
 
              particles[i].personalBest = particles[i].position\;
 
          }
+        }
+      }
+
 
          \tcc{Updating global best}
         \If{particles[i].score $>$ maxScore}{
@@ -36,11 +39,10 @@
 
 
 
-     }
      \Return bestParticle
 
  }
 
- \caption{Particle Swarm Optimisation}
-    \label{PSOAlgorithm}
+ \caption{Genetic Algorithm}
+    \label{GAAlgorithm}
 \end{algorithm}

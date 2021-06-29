@@ -1,9 +1,7 @@
-\subsection{Calculating the Travel Interest Vector} 
+\subsection{Automatic User Profiling} 
 
-We will evaluate the performance results of the
-three CNNs used to classify the users' social media images. Naturally, the
-speed and the accuracy of the program will be the deciding factor to form part
-of the application.
+The following evaluates the performance results of the
+three CNNs used to classify the users' social media images.
 
 \paragraph{Training results from the TensorFlow Keras sequential model}
 
@@ -14,61 +12,55 @@ testing set in the following subsections using the first 16 epochs.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Epoch_20.png}
+\includegraphics[width=0.6\textwidth]{Epoch_20.png}
 \caption{Training and validation accuracy of the model on the testing and validation dataset}
 \label{kerasresults}
 \end{figure}
 
 \paragraph{Performance comparison of the three models}
 
-The following will evaluate the performance of the three CNNs used to classify
-the user's photos. The model with the highest scores throughout all six
-categories will be selected as the baseline for our application. 
-
 The testing dataset consists of 500 images gathered using the Unsplash API. We
 calculated the Accuracy, Precision, Recall and F1 Score on the testing set to
-evaluate the models by extrapolating the number of true positive (TP), true
-negative  (TN), false-negative (FN) and false positive (FP) label values as a
+evaluate the models by calculating the number of true positive (TP), true
+negative  (TN), false-negative (FN) and false positive (FP) as a
 percentage over the dataset. 
 
-The accuracy of the models, represented by:
+The accuracy of the models, shown in figure~\ref{accuracy}, is represented by:
 
-\[Accuracy = (TP+TN) / (TP+FP+FN+TN)\]
+\[Accuracy = \frac{TP+TN}{TP+FP+FN+TN} \]
 
-The accuracy of the three models is shown in figure\ref{accuracy}. This shows
-how resembling labels are to their `true' value. In this case, the Resnet 50,
-Resnet 18, and Keras models have an average X, X, and X average accuracy,
-respectively. The chart shows how, overall, the three models have very high
-accuracy.
+This shows how many category predictions a model got right. In this case, the Resnet 50,
+Resnet 18, and Keras models have an average 93.7\%, 92.4\%, and 88.7\% average accuracy,
+respectively. Overall, the models have high accuracy. Therefore, we need to rely on other
+evaluation techniques.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Accuracy.png}
-\caption{Accuracy of the Resnet-18, Resnet-50 and Tensorflow Keras Sequential}
+\caption{Accuracy of the models}
 \label{accuracy}
 \end{figure}
 
-The precision of the models, represented by
+The precision of the models, shown in figure~\ref{precision}, represented by
 
-\[Precision = (TP) / (TP+FP)\]
-The precision of the three models shown in figure~\ref{precision},
-represents the ratio of correct predictions over the total positive labels.
-In this case, the Resnet 50, Resnet 18, and Keras models have an average X, X,
-and X precision rate, respectively. Again, the Resnet 50 has the best average
+\[Precision = \frac{TP}{TP+FP} \]
+This represents the ratio of correct predictions over the total positive labels.
+In this case, the Resnet 50, Resnet 18, and Keras models have an average 72.4\%, 66.7\%,
+and 62.4\% precision rate, respectively. The Resnet 50 has the best average
 overall; however, the Keras model performed better for the 'clubbing' and
 'bars' categories but very poorly in the shopping category.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{Precision.png}
-\caption{Precision of the Resnet-18, Resnet-50 and Tensorflow Keras Sequential}
+\caption{Precision of the models}
 \label{precision}
 \end{figure}
 
 The proportion of actual positive labels that the models identify correctly is
 represented by the recall value calculated using 
 
-\[Recall= (TP) / (TP+FN)\]
+\[Recall= \frac{TP}{TP+FN} \]
 
 In this case, figure \ref{recall}
 shows how for the clubbing and bar categories, although the Resnet models were
@@ -84,9 +76,9 @@ club when they are not supposed to.
 
 The F1 score is the weighted average of Precision and Recall measured using:
 
-\[F1 Score = 2*(Recall*Precision) / (Recall+Precision)\]
+\[F1 Score = \frac{2*Recall*Precision}{Recall+Precision}  \]
 The Reset 50 has a pretty consistent and high score on
-the testing dataset with an average F1 score of X, so
+the testing dataset with an average F1 score of 76.29., so
 we decided to use it as our baseline for the tourist
 itinerary generation application.
 
@@ -96,3 +88,8 @@ itinerary generation application.
 \caption{F1 score of the Resnet-18, Resnet-50 and Tensorflow Keras Sequential}
 \label{f1}
 \end{figure}
+
+These results have shown how a CNN could classify photos into the six
+application characteristics. Although all of the models achieved valid results,
+the Resnet 50 model was the best performer. Therefore, we will be using this
+model for our application.
