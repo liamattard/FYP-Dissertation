@@ -24,54 +24,118 @@ vector. The predefined constants are:
 %\subsubsection{}
 \subsubsection{Optimisation Algorithms}
 
+The following will discuss the steps required to
+produce the two timetable optimisation algorithms. PSO
+and GAs are two meta-heuristics that use a population
+to converge to a fit solution. Therefore, they require
+an initial random generation of possible timetables. In
+our algorithm, we introduce a method of randomisation
+bias which will be discussed before the algorithms.
+
+
 \paragraph{Random Bias}
+With this technique, the randomness of the initial
+population is weighted based on two components.
+\begin{enumerate}
+
+    \item  the place's rating and 
+
+    \item the place's number of ratings.
+\end{enumerate}
+
+
+Before the algorithm starts each POI will be given a score 
+that will determine its probability of being chosen as
+part of the initial population. For example, if a
+POI $i$ has a rating, 
+$r_i$ which a value from 0 to 5, and
+the number of ratings from users $z_i$. The score of $i$
+is calculated using the following equation:
+
+    \begin{center}
+        score = $\frac{r_i}{5}+\frac{z_i}{\text{max}(\sum_{j=0}^{N}{z_j})}$
+
+    \end{center}
+%\[ \text{score} = (p_i)p_i\text{.rating}\]
+
+This bias gives a head start to the algorithm
+rather than just starting optimising from purely
+random itineraries, highly likely to be of bad
+quality.
+
+\input{sections/methodology/psoAlgorithm.tex}
+
 \paragraph{Particle Swarm Optimisation}
+
+In PSO, the whole population is referred to as the
+swarm, whilst a single member a particle. Each
+particle has a 2-dimensional position(P) vector
+representing the current timetable solution and a
+2-dimensional velocity(V) vector expressing the direction
+of the particle during its search period. 
+
+The algorithm has four integer parameters. The
+personal acceleration (PA) affects how far away the
+particle moves from the personal best position (PB). 
+The global best acceleration (GA) attracts the global
+best position (GB) of the whole swarm. 
+The inertia (I) constant helps the particle
+explore new solutions and escape the local minima
+through randomness. 
+
+At each
+iteration, the new velocity is calculated using
+\begin{center}
+    new velocity = I + (PA * (PB - P)) + (GA * (GB - P))
+\end{center}
+
+the new position is calculated using
+\begin{center}
+    new position = P + new velocity 
+\end{center}
+
+After a few iterations have passed, particles use
+their velocity and move towards the optimum position.
+We demonstrate the framework of our PSO algorithm in
+algorithm \ref{PSOAlgorithm}.
+
+
+
+%\begin{algorithm}[h]
+%\SetAlgoLined
+
+ %\While{count > x}{
+
+
+         %%\eIF{}{
+
+             %%particles[i].personalBest = particles[i]
+
+         %%}
+
+         %%\eIF{particles[i].score > maxScore}{
+
+             %%maxScore = particles[i].score
+             %%bestParticle = particles[i]
+
+
+         %%}
+
+
+     %}
+
+
+
+     %}
+
+ %}
+ %\caption{Particle Swarm Optimisation}
+%\end{algorithm}
+
+\input{sections/methodology/gaAlgorithm.tex}
+
 \paragraph{Genetic Algorithms}
 
-The algorithm is a population-based technique that uses \textit{n}
-elements called particles~\cite{Kennedy}. Each particle has a
-d-dimensional \textit{position} vector representing a solution
-and a d-dimensional \textit{velocity} vector expressing the
-direction of the particle during its search period. 
-
-When a PSO program initialises all of the particles,
-they are usually set to a random or predetermined
-value. In our algorithm, we introduce a method of
-randomisation bias. Although the initial particles are
-generated randomly, the randomness is weighted 
-by three components: 
-\begin{enumerate}
-    
-    \item The user's travel interest vector 
-    \item the place's rating 
-    \item the place's number of ratings.
-
-\end{enumerate}
-This bias gives a
-head start to the algorithm rather than just starting
-optimising from purely random itineraries, highly
-likely to be of bad quality. Figure X
-shows an example of a sample place with its
-probability of being chosen as part of the initial
-particles alongside a sample tourist interest vector.
-At each iteration of the algorithm, the velocity of
-each particle is calculated based on the inertia
-constant and how well it is doing compared with its
-own best score and the global best score. The
-inertia constant helps the particle explore new
-solutions and escape the local minima. After a few
-iterations have passed, particles use this velocity
-and move towards the optimum position. We demonstrate
-the framework of our PSO algorithm in Figure~\ref{FlowChart}.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{FlowChart.png}
-\caption{Framework of PSO algorithm}
-\label{FlowChart}
-\end{figure}
-
-\subsubsection{Genetic Algorithm}
 Genetics algorithms use biological terms to describe
 their attributes. For example, in this algorithm, a
 timetable solution in population is referred to as a
@@ -86,19 +150,6 @@ are selected from each iteration. Then, three
 techniques, namely selection, mutation, and crossover,
 are applied to generate the next population. We show
 the framework of this algorithm in figure X. 
-
-\paragraph{Selection}:
-
-\paragraph{Mutation}:
-
-\paragraph{Crossover}:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{GAFlowchart.png}
-\caption{Framework of Genetic algorithm}
-\label{FlowChart}
-\end{figure}
 
 
 \subsection{Web application implementation and user
@@ -126,13 +177,13 @@ by the Gunicorn server to optimise the itinerary.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{TechStack.png}
+\includegraphics[width=0.5\textwidth]{TechStack.png}
 \caption{Tech Stack implementation of the application} \label{TechStack}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Process.png}
+\includegraphics[width=0.8\textwidth]{Process.png}
 \caption{User Experience Timeline}
 \label{Timeline}
 \end{figure}
@@ -144,5 +195,4 @@ social media profiles.  The user selects the number of
 days M and the activity moderation C.  The website
 navigates to the final page of the application
 exhibiting their personalised itinerary. 
-
 \subsection{In-Depth Semi Structured Interviews}
