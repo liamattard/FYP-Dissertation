@@ -13,6 +13,9 @@
 \usepackage{array,hhline}
 \usepackage[ruled,vlined]{algorithm2e}
 
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
 
 \title{Automatic User Profiling for Intelligent
 Tourist Trip Personalisation} 
@@ -23,9 +26,55 @@ Tourist Trip Personalisation}
 \supervisor{Dr Josef Bajada}
 \date{June 2021} 
 
-\longabstract{ Sample abstract.  }
+\longabstract{
 
-\acknowledgement{ Sample Acknowledgement }
+     The objective of holiday activity planning is to maximise the
+    traveller's enjoyment during such trips by selecting the right places to
+    visit and things to do according to the person's preferences. This process
+    involves preparing information from various data sources, which is often
+    very time-consuming. This project presents a tourist itinerary
+    recommendation algorithm that assists users by autonomously generating a
+    personalised holiday plan according to the user's travel dates and
+    constraints.  Furthermore, the system automatically builds a travel
+    interest profile from the user's social media presence, which is then used
+    to recommend itineraries tailored to the user's interests. The system uses
+    social media APIs from popular platforms such as Facebook and Instagram.
+    With the user's permission, the system gathers information such as pages
+    the user likes and pictures posted by the user. 
+
+    A Convolution Neural Network  is used to classify the user's pictures into their respective
+    travel category, such as Beach, Clubbing, Nature, Museums or Shopping,
+    which is then used to determine the user's predominant travel interest
+    topics. A Resnet-18, Resnet-50 and Keras Sequential model are validated 
+    separately on a testing dataset to see which one works best.  This computed
+    travel profile of a user takes the form of a weight vector, which is then
+    used to generate an automated itinerary that fits the user's preferences
+    and travel constraints. 
+
+    This weight vector is used to formulate a
+    personalised objective function used by various meta-heuristic and
+    evolutionary algorithms to optimise the plan. The algorithms consider hard
+    constraints such as holiday dates, distances between places, and soft
+    constraints (preferences), such as the interests and the user's preferred
+    pace. This dissertation compares Particle Swarm Optimisation and Genetic
+    Algorithms, and they are evaluated for both their plan quality and
+    performance.
+
+Since the results are highly personalised, the system was packaged into an
+application that allows users to connect with their social media accounts,
+build a personalised travel plan for a holiday in Malta, and ask the user to
+assess the plan's quality with respect to personal preferences and activity pace. The
+user is also asked to assess a more generic holiday itinerary without
+specification of the generated plan, in order to assess the
+effectiveness of the personalised holiday planning algorithm. }
+
+\acknowledgement{I want to thank the following people for helping with this research project:
+
+First, I would like to thank Dr Josef Bajada for guiding me positively
+throughout this dissertation and always making me feel confident in my
+abilities. Second, I would also like to thank Kelcy De Marco for all her patience, love
+and support. Finally, I would like to thank my parents, siblings and friends
+who have supported and motivated me consistently throughout this project.}
 
 \begin{document} 
 
@@ -48,6 +97,9 @@ Tourist Trip Personalisation}
 
 \bibliographystyle{IEEEtran}
 \bibliography{/home/liam/Documents/latex/library/bibFile/library.bib}
+
+\input{sections/results/ack.tex}
+\pagebreak
 
 \end{document}
 

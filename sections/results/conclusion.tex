@@ -1,1 +1,45 @@
-\section{Conclusion}
+\section{Conclusion and Future Work}
+
+In this dissertation, we addressed the question `Can a system automatically
+recognises a tourist's travel preferences and use this information to generate
+a personalised itinerary for a holiday?'. 
+
+We introduced an automatic preference gathering technique that scans a user's
+social media profile and analyses the user's photos and liked pages. Our work
+presents a comparison between three CNNs: the Resnet 18, Resnet 50 and Keras
+Tensorflow models trained to classify an image into one of the following user
+characteristics; Beach, Nature, Shopping, Museums, Nature Clubbing and Bars.
+
+As a result, we have built an application to solve the TTDP that considers the
+popularity of POIs, the user's automatically generated interests, the user's
+activity pace and the distance between places as constraints to recommend a
+suitable itinerary.
+
+We optimised the timetables by comparing two meta-heuristics, Particle Swarm
+Optimisation and Genetic algorithms and found that the PSO algorithm provided
+the best balance between achieving the highest score and providing the solution
+in a reasonable amount of time. 
+
+Finally, we asked 20 people to provide us with feedback regarding the
+personalisation of the timetables through in-depth semi-structured interviews.
+The interviews displayed personalised results and non-personalised results in
+random order, and without informing the interviewees which one was which, 15
+people prefered the personalised itinerary.
+
+So far, we used the user's photos and the user's liked pages to gather the
+preferences automatically. However, we have seen through the interviews that not
+everyone feels that what they post online represents their travel preferences.
+Therefore, more diverse approaches through social media should be applied and
+compared in future work such as:
+
+\begin{itemize}
+\item Gather characteristics from social media contacts that potential tourists follow.
+\item Use Natural Language Process techniques to scan the user's online posts.
+\item Expand the application to use other social media APIs such as Twitter and Google Photos to reach more people. 
+\end{itemize}
+
+Although there is always room for further development, this dissertation forms
+the basis to prove that an automatic preference gathering system can further
+assist a travel-related application to achieve more satisfactory results for
+its users.
+

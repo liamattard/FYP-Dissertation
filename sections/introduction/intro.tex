@@ -18,7 +18,7 @@ rely on multiple data sources such as travel
 brochures, blogs and vlogs to form a holiday plan and
 retrieve the top-rated points of interests (POI) of a site. 
 However, a tourist has to compile a timetable
-independently even though mediums do not hold the
+independently even though these mediums do not hold the
 resources to provide POIs tailored according to the
 traveller's preferences and constraints
 ~\cite{DeChoudhury2010}. 
@@ -38,10 +38,7 @@ of POIs. Therefore, many approximate algorithms,
 namely heuristic and meta-heuristic approaches, work
 %TODO: ask about this
 to converge solutions with complex alternatives to
-this problem.Section
-~\ref{Literature} provides a detailed review of this problem and its
-variants.  
-
+this problem.
 
 Nevertheless, the few existing systems that provide
 users with an itinerary or route require a lengthy
@@ -52,10 +49,9 @@ we will try to answer the following research question:
 
 \begin{center}
 
-    \textit{Can a system automatically get to know
-    what a tourist likes to visit and use this
-information to generate a personalised itinerary for a
-holiday?}
+    \textit{Can a system automatically recognises a tourist's travel
+    preferences and use this information to generate a personalised itinerary
+for a holiday?}
 
 \end{center}
 
@@ -72,9 +68,9 @@ holiday?}
 Our primary motivation behind this work is to
 introduce the automatic retrieval of user preferences
 for other travel planning applications. Currently,
-there is no mainstream application that provides
+there is no application that provides
 tourists with a fully personalised plan from a quick
-and easy to use application.  We were also motivated
+and easy to use process.  We were also motivated
 by the idea of delivering one centralised system which
 organises the whole holiday rather than having to
 spend time searching through the excessive amount of
@@ -82,15 +78,16 @@ data online. This approach is better than bombarding
 potential tourists with many questions to understand
 the users' personalities.
 
-Existing algorithms and tourist planners use
-heuristics to optimise solutions for the timetable
-problem and achievable results in polynomial time
-\cite{Vansteenwegen2011}.
-
 Collecting the users' preferences is a
 beneficial technique used by businesses to advertise
 their products by targeting only a specific audience
 \cite{article}.
+
+Existing algorithms and tourist planners use
+heuristics and meta-heuristics to optimise solutions for the timetable
+problem and achieve results in polynomial time
+\cite{Vansteenwegen2011}.
+
 
 In this dissertation we combine both
 technologies to provide one system.
@@ -99,7 +96,7 @@ technologies to provide one system.
 
 This dissertation aims to build an application that
 generates a personalised holiday plan according to the
-user's travel dates and constraints.
+user's travel dates and constraints. The following are the objectives:
 
 
 \begin{itemize}
@@ -136,7 +133,7 @@ desires by scanning their social media profile using
 machine learning classification approaches through
 Convolutional Neural Networks (CNN).
 
-The results from the evaluation section~\ref{evaluation}
+The results from the evaluation in  section~\ref{evaluation}
 show that we were able to classify the user's photos
 and liked pages into a travel interest vector that automatically
 describes the user's characteristics. We were also able to provide optimisation
@@ -149,8 +146,8 @@ and the resulting timetables.
 
 \subsection{Document Structure}
 
-This dissertation is structured as follows; Section~\ref{Literature}
-discusses related work relating to existing TTDP
+This dissertation is structured as follows: \\
+Section~\ref{Literature} discusses work relating to existing TTDP
 solutions and automatic user preference gathering.
 Section~\ref{MethodologyPage} demonstrates the steps taken to create the
 whole application along with its underlying mechanism.

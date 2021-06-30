@@ -106,7 +106,7 @@ algorithm \ref{PSOAlgorithm}.
 
 Genetics algorithms use biological terms to describe
 their attributes. For example, a timetable solution in
-population is referred to as a chromosome. (cite) 
+population is referred to as a chromosome~\ref{Abbaspour2011}. 
 
 In PSO, the algorithm optimises by allowing each
 particle to move closer to the global best every
@@ -116,10 +116,10 @@ iteration. Then, three techniques, namely selection,
 mutation, and crossover, are applied to generate the
 next population.
 
-We used the geneticalgorithm2 package provided by X,
+We used the geneticalgorithm2 package~\footnote{https://pypi.org/project/geneticalgorithm2/},
 which allowed us to use the same score function and
 the random bias to initialise the particles. The
-algorithm has X parameters. The parents portion
+algorithm has 7 parameters. The parents portion
 represents the number of parents who will reproduce
 and create the next generation. The mutation
 probability determines the chance a POI in a
@@ -130,8 +130,8 @@ will affect the chance that part of its solution goes
 to the child. Finally, the elite ratio determines how
 much of the best chromosomes in an iteration make it
 to the next iteration.  There are many types of
-crossovers and mutations. In this algorithm, we
-explored X.  The algorithm produced the following
+crossovers techniques. In this algorithm, we
+explored \textit{one point, two point, uniform and shuffle crossover}.  The algorithm produced the following
 steps: \\
 \textbf{Step 1}: Initialise the first population using random bias. \\
 \textbf{Step 2}: Select the best chromosomes from the population. \\ 

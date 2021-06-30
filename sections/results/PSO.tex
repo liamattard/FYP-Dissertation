@@ -18,7 +18,7 @@ iterations for the following constraints:
 \begin{figure}[h]
 \centering
         \includegraphics[width=0.65\textwidth]{GAOptimisation.png}
-        \caption{GS 7-day optimisation.}
+        \caption{GA 7-day optimisation.}
         \label{GAOptimisation}
 \end{figure}
 
@@ -54,9 +54,9 @@ task in 11 seconds and achieved an average score of
 
 Many parameters help tweak the performance of the
 algorithms. In PSO, the inertia property heavily
-controls the convergence behaviour (CITE). Out
-algorithm implements the Time-Varying Inertia Weight
-(CITE), which gradually decreases throughout each
+controls the convergence behaviour and our
+algorithm implements the Time-Varying Inertia Weight ~\ref{Umapathy2010}
+, which gradually decreases throughout each
 iteration. Figure~\ref{Inertia} shows the optimisation algorithm
 without the inertia property and barely increases the
 score since the particles do not explore new
@@ -71,7 +71,7 @@ territories.
 
 GAs are heavily affected by the crossover techniques
 since the search for the best result is dependent on
-the creation of new children (CITE). Figure X shows
+the creation of new children~\cite{Wang2008a}. Figure~\ref{Crossovers} shows
 the average scores of 20 generated itineraries for 
 four different crossover techniques and the same
 previously mentioned constraints. Since uniform
@@ -83,7 +83,7 @@ technique.
 \centering
 \includegraphics[width=0.6\textwidth]{Crossover.png}
 \caption{Average Scores of different crossover techniques}
-\label{RS}
+\label{Crossovers}
 \end{figure}
 
 
@@ -118,12 +118,12 @@ Table~\ref{Parameters} provides the parameter values of the two algorithms:
 \end{table}
 
 We generated 50 random constraints and tested them out
-on both algorithms. Figure X shows how the number of
+on both algorithms. Figure~\ref{AverageScore} shows how the number of
 particles affects the score. For 100 population
 members, both algorithms achieve similar average
 scores. However, the difference in score is not
 proportional to the average time taken to complete a
-single day, as shown in figure X.
+single day, as shown in figure ~\ref{AverageTime}.
 
 \begin{figure}[h]
 \centering
